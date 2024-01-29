@@ -16,7 +16,7 @@ function Login() {
           </div>
           <div class="col-6" id="right-box">
             <div>
-              <pre>MWah Mwah Mwah</pre>
+              <pre>ohnt ohnt ohnt</pre>
               <p>Find your stuffs here!</p>
             </div>
           </div>
