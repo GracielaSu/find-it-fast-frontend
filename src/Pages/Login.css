@@ -1,0 +1,27 @@
+#login{
+    overflow-x: hidden;
+}
+#right-box{
+    background-color: #5A3D7F;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#right-box pre{
+    color:white;
+    font-size: 30px;
+}
+#right-box p{
+    color: white;
+    text-align: center;
+    font-size: small;
+}
+#login-box{
+    background-color: pink;
+    text-align: center;
+    padding: 50px;
+}
+#left-bottom-box{
+    padding: 0 200px 0 200px;
+}
