@@ -1,15 +1,15 @@
-import './Home.css'
+import './AdminCategory.css'
 import Nav from '../Components/Nav'
 
-function Home() {
+function AdminCategory() {
   return (
     <>
       <div class="container-flex" id="main-container">
         <Nav currentPage="Product Management" accountName="Customer 1"/>
-        <div class="h1">Welcome to home Find it fast</div>
+        <div class="h1">Welcome to AdminCategory Find it fast</div>
       </div>
     </>
   );
 }
 
-export default Home;
+export default AdminCategory;

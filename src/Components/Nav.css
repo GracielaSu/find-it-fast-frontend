@@ -1,5 +1,5 @@
 #nav-body {
-    position: fixed;
+    position: sticky;
     height: 12vh;
     background-color: #D93F518d;
 }
