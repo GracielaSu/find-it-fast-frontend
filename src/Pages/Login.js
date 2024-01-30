@@ -1,5 +1,4 @@
 import './Login.css'
-import Button from '../Components/Button';
 
 function Login() {
   return (

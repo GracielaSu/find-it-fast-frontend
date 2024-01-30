@@ -1,10 +1,10 @@
 import Login from './Pages/Login';
-import Example from './Pages/Example';
+import Home from './Pages/Home';
 
 function App() {
   return (
     // <div><Login /></div>
-    <div><Login /></div>
+    <div><Home /></div>
   );
 }
 
