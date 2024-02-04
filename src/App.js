@@ -1,15 +1,22 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
-import AdminCategory from './Pages/AdminCategory';
 
 function App() {
+  const isAdmin = (localStorage.getItem('role') === 'admin') ? true : false;
+
   return (
-    <>
-    <div><Login /></div>
-    {/* <div><Home /></div>
-    <div><AdminCategory /></div> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
+
 
 export default App;

@@ -1,6 +1,60 @@
-import './Login.css'
+import './Login.css';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
+const loginApiEndpoint = "http://localhost:8000/api/auth/login";
+const checkUserApiEndpoint = "http://localhost:8000/api/auth/profile";
+
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    axios.post(loginApiEndpoint, {
+      email: email,
+      password: password,
+    }, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    .then(response => {
+      const token = response.data.access_token;
+      localStorage.setItem('token', token);
+      checkUser(token);
+    })
+    .catch(error => {
+      console.error('Login failed', error);
+    });
+  };
+
+  const checkUser = (token) => {
+    console.log(token)
+    axios.post(checkUserApiEndpoint, null, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+    .then(response => {
+      console.log('User profile:', response.data);
+      const role = response.data.role;
+      localStorage.setItem('role', role)
+      if (role === "admin") {
+        console.log("U r admin")
+        navigate('/home'); // Use navigate to redirect
+      }
+      if (role === "customer"){
+        console.log("U r customer")
+        navigate('/login');
+      }
+    })
+    .catch(error => {
+      console.error('Error checking user', error);
+    });
+  };
+
   return (
     <>
       <div class="container-flex" id="wrapper">
@@ -65,17 +119,17 @@ function Login() {
                       <form>
                         <div class="form-group">
                           <label for="inputEmail">Email address</label>
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Enter email"></input>
+                          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} class="form-control" id="inputEmail" placeholder="Enter email"></input>
                         </div>
                         <div class="form-group">
                           <label for="inputPassword">Password</label>
-                          <input type="password" class="form-control" id="inputPassword" placeholder="Password"></input>
+                          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" id="inputPassword" placeholder="Password"></input>
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary">Login</button>
+                      <button type="button" onClick={handleLogin} class="btn btn-primary">Login</button>
                     </div>
                   </div>
                 </div>
