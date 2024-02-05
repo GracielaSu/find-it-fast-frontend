@@ -27,21 +27,19 @@ const Login = () => {
       setIsToken(true)
     } catch (error) {
       console.error('Login failed', error);
-      // Handle login errors here, e.g., display an error message
+    }
+    const loginModal = document.getElementById('loginModal');
+    if (loginModal) {
+      loginModal.classList.remove('show');
+      const backdrop = document.querySelector('.modal-backdrop');
+      if (backdrop) {
+        backdrop.parentNode.removeChild(backdrop);
+      }
     }
   };
-  if (isToken){
-    return <Navigate to="/admin" replace />;
+  if (isToken) {
+    return <Navigate to="/push-user" replace />;
   }
-
-    // const loginModal = document.getElementById('loginModal');
-    // if (loginModal) {
-    //   loginModal.classList.remove('show');
-    //   const backdrop = document.querySelector('.modal-backdrop');
-    //   if (backdrop) {
-    //     backdrop.parentNode.removeChild(backdrop);
-    //   }
-    // }
 
   return (
     <>

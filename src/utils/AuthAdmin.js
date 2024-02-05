@@ -6,9 +6,9 @@ import { ClipLoader } from "react-spinners";
 
 const checkUserApiEndpoint = "http://localhost:8000/api/auth/profile";
 
-const Auth = () => {
+const AuthAdmin = () => {
     const token = localStorage.getItem('token');
-    const [isAuth, setIsAuth] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,9 +19,8 @@ const Auth = () => {
         })
             .then(response => {
                 const role = response.data.role;
-                if (role === "admin" || role === "customer") {
-                    setIsAuth(true);
-                    console.log("Authenthicated")
+                if (role === "admin") {
+                    setIsAdmin(true);
                 }
             })
             .catch(error => {
@@ -44,7 +43,8 @@ const Auth = () => {
         );
     }
 
-    return isAuth ? <Outlet /> : <Navigate to="/" />;
-}
+    return isAdmin ? <Outlet /> : <Navigate to="/" />;
+};
 
-export default Auth
+export default AuthAdmin;
+
