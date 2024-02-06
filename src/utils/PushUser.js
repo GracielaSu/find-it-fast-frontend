@@ -46,7 +46,7 @@ const PushUser = () => {
     );
   }
 
-  return redirectTo ? <Navigate to={redirectTo} replace /> : null;
+  return redirectTo ? <Navigate to={redirectTo} /> : null;
 };
 
 export default PushUser;

@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [isToken, setIsToken] = useState(false);
 
-  const handleLogin = async () => { // Make handleLogin async
+  const handleLogin = async () => {
     try {
       const response = await axios.post(loginApiEndpoint, {
         email: email,
