@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,11 +20,98 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('../public/photos/bg2.png');
+  background-color: #A88CC0;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.backgound{
+  background-color: #A88CC07d;
+  height: 100vh;
+}
+
+#login-wrapper {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#login-column1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-column2 {
+  background-color: #5a3d7fd7;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1 {
+  letter-spacing: 1rem;
+  text-shadow: 0px 0px 30px black;
+}
+
+.h6 {
+  letter-spacing: .2rem;
+  font-weight: normal;
+  text-shadow: 0px 0px 10px black;
+}
+
+.h3 {
+  letter-spacing: .25rem;
+  text-shadow: 0px 0px 10px black;
+}
+
+.login-btn {
+  background-color: #d93f51;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.551);
+}
+
+.login-btn:hover {
+  background-color: #a5303e;
+}
+
+#login-box {
+  background-color: #d93f51d7;
+  box-shadow: 0px 0px 50px black;
+}
+#nav-body {
+  position: sticky;
+  height: 12vh;
+  background-color: #D93F518d;
+}
+#logo {
+  margin-top: 1vh;
+  height: 10vh;
+}
+.dropdown-toggle::after{
+  display: none;
+}
+.dropdown-menu{
+  background-color: #5a3d7fd7;
+}
+.dropdown-item{
+  color:white;
+  text-align: center;
+}
+.home-leftbox{
+  background-color: #D93F518d;
+}
+.home-playbtn{
+  background-color: #5a3d7fd7;
+}
+.home-h5{
+  letter-spacing: .3rem;
+  text-shadow: 0px 0px 10px black;
 }

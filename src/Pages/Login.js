@@ -1,4 +1,3 @@
-import './Login.css';
 import { useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
@@ -43,18 +42,18 @@ const Login = () => {
 
   return (
     <>
-      <div class="container-flex" id="wrapper">
+      <div class="container-flex" id="login-wrapper">
         <div class="row h-100">
-          <div class="col-md-6 text-white" id="column2">
+          <div class="col-md-6 text-white" id="login-column2">
             <div>
-              <div class="h1">FIND IT FAST</div>
-              <div class="h6 mt-5">Find Your Electronic Stuffs Here!</div>
+              <div class="h1 login-h1">FIND IT FAST</div>
+              <div class="h6 login-h6 mt-5">Find Your Electronic Stuffs Here!</div>
             </div>
           </div>
-          <div class="col-md-6" id="column1">
+          <div class="col-md-6" id="login-column1">
             <div class="p-5 rounded text-white" id="login-box">
-              <div class="h1 pb-3">Get Started</div>
-              <div type="button" data-toggle="modal" data-target="#registerModal" class="btn p-3 mt-5 d-block h3 rounded text-white">Register</div>
+              <div class="h1 login-h1 pb-3">Get Started</div>
+              <div type="button" data-toggle="modal" data-target="#registerModal" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white">Register</div>
               <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -85,13 +84,13 @@ const Login = () => {
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-success">Register</button>
+                      <button type="button" class="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn login-btn btn-success">Register</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div type="button" data-toggle="modal" data-target="#loginModal" class="btn p-3 mt-5 d-block h3 rounded text-white">Login</div>
+              <div type="button" data-toggle="modal" data-target="#loginModal" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white">Login</div>
               <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -114,8 +113,8 @@ const Login = () => {
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" onClick={handleLogin} class="btn btn-primary">Login</button>
+                      <button type="button" class="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" onClick={handleLogin} class="btn login-btn btn-primary">Login</button>
                     </div>
                   </div>
                 </div>

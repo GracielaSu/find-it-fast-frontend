@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import './NotFound.css';
 
 const WelcomeAdmin = () => {
   const [isRoute, setIsRoute] = useState(false);
