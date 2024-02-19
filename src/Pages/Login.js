@@ -8,8 +8,21 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isToken, setIsToken] = useState(false);
+  const [loginError, setLoginError] = useState(null);
 
   const handleLogin = async () => {
+    if (!email) {
+      setLoginError('Please provide both email and password.');
+      return;
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setLoginError('Invalid email format. Please provide a valid email address.');
+      return;
+    }
+    if (!password) {
+      setLoginError('Please provide both email and password.');
+      return;
+    }
     try {
       const response = await axios.post(loginApiEndpoint, {
         email: email,
@@ -23,9 +36,12 @@ const Login = () => {
       const token = response.data.access_token;
       localStorage.setItem('token', token);
       console.log('login is good');
-      setIsToken(true)
+      setIsToken(true);
+      setLoginError('');
     } catch (error) {
-      console.error('Login failed', error);
+      console.log('Login failed', error);
+      setLoginError('Login failed. Please check your credentials and try again.');
+      return
     }
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {
@@ -36,85 +52,110 @@ const Login = () => {
       }
     }
   };
+
+  const [registerName, setRegisterName] = useState('');
+  const [registerEmail, setRegisterEmail] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [registerError, setRegisterError] = useState(null);
+
+  const handleRegister = () => {
+    if (!registerName || !registerEmail || !registerPassword || !confirmPassword) {
+      setRegisterError('Please fill in all fields.');
+      return;
+    }
+    if (registerPassword !== confirmPassword) {
+      setRegisterError('Passwords do not match.');
+      return;
+    }
+    // Your register logic here
+    console.log('Registration successful!');
+    setLoginError('');
+  };
+
   if (isToken) {
     return <Navigate to="/push-user" replace />;
   }
 
   return (
     <>
-      <div class="container-flex" id="login-wrapper">
-        <div class="row h-100">
-          <div class="col-md-6 text-white" id="login-column2">
+      <div className="container-flex" id="login-wrapper">
+        <div className="row h-100">
+          <div className="col-md-6 text-white" id="login-column2">
             <div>
-              <div class="h1 login-h1">FIND IT FAST</div>
-              <div class="h6 login-h6 mt-5">Find Your Electronic Stuffs Here!</div>
+              <div className="h1 login-h1">FIND IT FAST</div>
+              <div className="h6 login-h6 mt-5">Find Your Electronic Stuffs Here!</div>
             </div>
           </div>
-          <div class="col-md-6" id="login-column1">
-            <div class="p-5 rounded text-white" id="login-box">
-              <div class="h1 login-h1 pb-3">Get Started</div>
-              <div type="button" data-toggle="modal" data-target="#registerModal" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white">Register</div>
-              <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="registerModalLabel">Register</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div className="col-md-6" id="login-column1">
+            <div className="p-5 rounded text-white" id="login-box">
+              <div className="h1 login-h1 pb-3">Get Started</div>
+              {/* Register Modal */}
+              <button type="button" className="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white" data-toggle="modal" data-target="#registerModal">Register</button>
+              <div className="modal fade" id="registerModal" tabIndex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="registerModalLabel">Register</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <form>
-                        <div class="form-group">
-                          <label for="registerName">Name</label>
-                          <input type="text" class="form-control" id="registerName" placeholder="Enter name"></input>
+                        <div className="form-group">
+                          <label htmlFor="registerName">Name</label>
+                          <input type="text" className="form-control" id="registerName" placeholder="Enter name" value={registerName} onChange={(e) => setRegisterName(e.target.value)} />
                         </div>
-                        <div class="form-group">
-                          <label for="registerEmail">Email address</label>
-                          <input type="email" class="form-control" id="registerEmail" placeholder="Enter email"></input>
+                        <div className="form-group">
+                          <label htmlFor="registerEmail">Email address</label>
+                          <input type="email" className="form-control" id="registerEmail" placeholder="Enter email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
                         </div>
-                        <div class="form-group">
-                          <label for="registerPassword">Password</label>
-                          <input type="password" class="form-control" id="registerPassword" placeholder="Password"></input>
+                        <div className="form-group">
+                          <label htmlFor="registerPassword">Password</label>
+                          <input type="password" className="form-control" id="registerPassword" placeholder="Password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
                         </div>
-                        <div class="form-group">
-                          <label for="confirmPassword">Confirm Password</label>
-                          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"></input>
+                        <div className="form-group">
+                          <label htmlFor="confirmPassword">Confirm Password</label>
+                          <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         </div>
                       </form>
+                      {registerError && <p className="text-danger">{registerError}</p>}
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn login-btn btn-success">Register</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" className="btn login-btn btn-success" onClick={handleRegister}>Register</button>
                     </div>
                   </div>
                 </div>
               </div>
-              <div type="button" data-toggle="modal" data-target="#loginModal" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white">Login</div>
-              <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              {/* Login Modal */}
+              <button type="button" className="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white" data-toggle="modal" data-target="#loginModal">Login</button>
+              <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title" id="loginModalLabel">Login</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <form>
-                        <div class="form-group">
-                          <label for="inputEmail">Email address</label>
-                          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} class="form-control" id="inputEmail" placeholder="Enter email"></input>
+                        <div className="form-group">
+                          <label htmlFor="inputEmail">Email address</label>
+                          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="inputEmail" placeholder="Enter email" />
                         </div>
-                        <div class="form-group">
-                          <label for="inputPassword">Password</label>
-                          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" id="inputPassword" placeholder="Password"></input>
+                        <div className="form-group">
+                          <label htmlFor="inputPassword">Password</label>
+                          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" id="inputPassword" placeholder="Password" />
                         </div>
                       </form>
+                      {loginError && <p className="text-danger">{loginError}</p>}
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
-                      <button type="button" onClick={handleLogin} class="btn login-btn btn-primary">Login</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn login-btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="button" onClick={handleLogin} className="btn login-btn btn-primary">Login</button>
                     </div>
                   </div>
                 </div>
