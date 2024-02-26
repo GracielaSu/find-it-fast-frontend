@@ -114,3 +114,9 @@ code {
 .home-h5{
   letter-spacing: .3rem;
 }
+.home-explore-button{
+  background-color: #d83346b3;
+}
+.home-explore-button:hover{
+  background-color: rgba(69, 1, 9, 0.612);
+}

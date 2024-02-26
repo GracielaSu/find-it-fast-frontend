@@ -1,10 +1,11 @@
 import Nav from "../Components/Nav";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 function Home() {
   return (
     <div class="backgound">
       <Nav />
-      <div class="container-fluid"> 
+      <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
             <div class="h1 p-5 m-5 rounded-3 home-leftbox text-white">
@@ -14,9 +15,11 @@ function Home() {
             </div>
           </div>
           <div class="col-md-6">
-            <div class="d-flex justify-content-around p-5 m-5 border-start border-5 border-info">
-              <div class="bg-dark" style={{ maxWidth:"200px"}}><img src="photos/bg.png" style={{ maxWidth:"200px"}} class="rounded" id=""></img></div>
-              <div class="bg-white">sdfsd</div>
+            <div class="m-5">
+              <video width="auto" height="340" autoPlay muted loop>
+                <source src="/videos/ads.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
@@ -30,9 +33,13 @@ function Home() {
               <h5>~Say goodbye to information overload; say hello to personalized precision.</h5>
             </div>
           </div>
-          <div class="col-md-6 p-5">
-            <div class="btn btn-dark">Explore</div>
+          <div class="col-md-6 d-flex justify-content-center align-items-center text-center">
+            <div class="btn home-explore-button text-white h1" style={{ padding: "3rem", width: "30rem" }}>
+              Explore
+              <ShoppingCartIcon />
+            </div>
           </div>
+
         </div>
       </div>
     </div>
