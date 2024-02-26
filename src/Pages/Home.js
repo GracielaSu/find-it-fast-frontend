@@ -14,10 +14,10 @@ function Home() {
               <div class="p-3">FAST</div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="m-5">
-              <video width="auto" height="340" autoPlay muted loop>
-                <source src="/videos/ads.mp4" type="video/mp4" />
+          <div class="col-md-6  d-flex justify-content-center align-items-center text-center">
+            <div class="shadow border-start border-end border-5 border-info px-5 py-3">
+              <video width="auto" height="300" autoPlay muted loop class="rounded-3">
+                <source src="/videos/adsVideo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
