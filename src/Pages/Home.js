@@ -1,5 +1,6 @@
 import Nav from "../Components/Nav";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import NavigateButton from "../Components/NavigateButton";
 
 function Home() {
   return (
@@ -34,10 +35,11 @@ function Home() {
             </div>
           </div>
           <div class="col-md-6 d-flex justify-content-center align-items-center text-center">
-            <div class="btn home-explore-button text-white h1" style={{ padding: "3rem", width: "30rem" }}>
+            {/* <div class="btn home-explore-button text-white h1" style={{ padding: "3rem", width: "30rem" }}>
               Explore
               <ShoppingCartIcon />
-            </div>
+            </div> */}
+            <NavigateButton text="Explore" route="/category" />
           </div>
 
         </div>
