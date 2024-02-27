@@ -90,13 +90,17 @@ const Login = () => {
           <div className="col-md-6" id="login-column1">
             <div className="p-5 rounded text-white" id="login-box">
               <div className="h1 login-h1 pb-3">Get Started</div>
+              <div class="d-flex flex-column align-items-center">
+                <button type="button" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white w-75" data-toggle="modal" data-target="#registerModal">Register</button>
+                <button type="button" class="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white w-75" data-toggle="modal" data-target="#loginModal">Login</button>
+              </div>
+
               {/* Register Modal */}
-              <button type="button" className="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white" data-toggle="modal" data-target="#registerModal">Register</button>
               <div className="modal fade" id="registerModal" tabIndex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
-                  <div className="modal-content">
+                  <div className="modal-content custom-modal">
                     <div className="modal-header">
-                      <h5 className="modal-title" id="registerModalLabel">Register</h5>
+                      <h5 className="modal-title text" id="registerModalLabel">Register</h5>
                       <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -130,10 +134,9 @@ const Login = () => {
                 </div>
               </div>
               {/* Login Modal */}
-              <button type="button" className="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white" data-toggle="modal" data-target="#loginModal">Login</button>
               <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
-                  <div className="modal-content">
+                  <div className="modal-content custom-modal">
                     <div className="modal-header">
                       <h5 className="modal-title" id="loginModalLabel">Login</h5>
                       <button type="button" className="close" data-dismiss="modal" aria-label="Close">

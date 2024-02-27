@@ -86,6 +86,9 @@ code {
   background-color: #d93f51d7;
   box-shadow: 0px 0px 50px black;
 }
+.custom-modal{
+  background-color: #5a3d7f92;
+}
 #nav-body {
   position: sticky;
   height: 12vh;

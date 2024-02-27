@@ -1,3 +1,5 @@
+import LogoutButton from "./LogoutButton";
+
 function Nav({ currentPage, accountName }) {
     return (
         <>
@@ -27,7 +29,7 @@ function Nav({ currentPage, accountName }) {
                             </svg></div>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item h6" href="#">Logout</a></li>
+                            <li><LogoutButton/></li>
                         </ul>
                     </div>
                 </div>
