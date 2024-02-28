@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { css } from "@emotion/react";
 import { ClipLoader } from "react-spinners";
+import Nav from '../Components/Nav'
+import CommingSoon from './ComingSoon';
 
 const apiEndPoint = "http://localhost:8000/api/products"
 const token = localStorage.getItem('token');
@@ -42,32 +44,10 @@ const AdminCategory = () => {
     }
 
     return (
-        <>
-            <div class="container" id="">
-                <div class="h3">Admin Category |</div>
-                {loading ? (
-                    <p>Loading...</p>
-                ) : (
-                    <div>
-                        <h2>Products</h2>
-
-                        {products.map(product => (
-                            <div class="row">
-                                <div class="card" key={product.id}>
-                                    <div class="card-body d-flex">
-                                        <img src="image.jpg" class="card-img-top" alt="Photo" />
-                                        <h5 class="card-title">{product.name}</h5>
-                                        <p class="card-text">${product.price}</p>
-                                        <p class="card-text">{product.short_description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-
-                    </div>
-                )}
-            </div>
-        </>
+        <div class="backgound">
+            <Nav currentPage="Admin Portal"/>
+            <CommingSoon/>
+        </div>
     );
 }
 

@@ -5,7 +5,7 @@ import NavigateButton from "../Components/NavigateButton";
 function Home() {
   return (
     <div class="backgound">
-      <Nav />
+      <Nav currentPage="Home" />
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">

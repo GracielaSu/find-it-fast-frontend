@@ -1,7 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import LogoutButton from "./LogoutButton";
 
 function Nav({ currentPage }) {
-    const username = localStorage.getItem("username")
+  const navigate = useNavigate();
+  const username = localStorage.getItem("username")
+    function handleLink (link) {
+        navigate(link, { replace: true });
+      }
     return (
         <>
             <div class="navbar navbar-expand-md container-fluid d-flex justify-content-between text-white" id="nav-body">
@@ -15,9 +20,9 @@ function Nav({ currentPage }) {
                             </svg></div>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item h6" href="#">Page 1</a></li>
-                            <li><a class="dropdown-item h6" href="#">Page 2</a></li>
-                            <li><a class="dropdown-item h6" href="#">Page 3</a></li>
+                            <li><a class="dropdown-item h6 btn" onClick={() => handleLink("/home")}>Home</a></li>
+                            <li><a class="dropdown-item h6 btn" onClick={() => handleLink("/category")}>Category</a></li>
+                            <li><a class="dropdown-item h6 btn" onClick={() => handleLink("/help-center")}>Help Center</a></li>
                         </ul>
                     </div>
                 </div>

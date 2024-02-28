@@ -21,6 +21,7 @@ const AuthAdmin = () => {
                 const role = response.data.role;
                 if (role === "admin") {
                     setIsAdmin(true);
+                    localStorage.setItem("username", response.data.name)
                 }
             })
             .catch(error => {

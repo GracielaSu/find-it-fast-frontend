@@ -36,6 +36,10 @@ code {
   background-color: #A88CC07d;
   min-height: 100vh;
 }
+.backgound-2 {
+  background-color: #18002de1;
+  min-height: 100vh;
+}
 
 #login-wrapper {
   overflow-y: hidden;
@@ -200,9 +204,10 @@ code {
   background-color: #422765d7;
   color: cyan !important;
 }
-.chat-bot{
+
+.chat-bot {
   display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    height: 100vh; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }

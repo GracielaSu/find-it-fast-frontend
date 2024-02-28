@@ -36,9 +36,8 @@ const ProductCards = (categoryId) => {
     return <p>Loading products...</p>;
   }
 
-  function handleExplore(name) {
-    localStorage.setItem("categoryName", name);
-    navigate("/product", { replace: true });
+  function handleBuy(link) {
+    navigate(link, { replace: true });
   }
 
   return (
@@ -53,7 +52,7 @@ const ProductCards = (categoryId) => {
               <p class="card-text">{product.long_description}</p>
               <div class="d-flex justify-content-around">
                 <div class="text-info p-2">${product.price}</div>
-                <div class="btn btn-info h6">Buy <ShoppingCartIcon/></div>
+                <div class="btn btn-info h6" onClick={() => handleBuy("/coming-soon")}>Buy <ShoppingCartIcon/></div>
               </div>
               {/* <div className="category-button btn w-50 p-3 text-white h3" onClick={() => handleExplore(product.name)}>Explore <ShoppingCartIcon /></div> */}
             </div>
@@ -69,9 +68,8 @@ const ProductCards = (categoryId) => {
               <p class="card-text">{product.long_description}</p>
               <div class="d-flex justify-content-around">
                 <div class="text-info p-2">${product.price}</div>
-                <div class="btn btn-info h6">Buy <ShoppingCartIcon/></div>
+                <div class="btn btn-info h6" onClick={() => handleBuy("/coming-soon")}>Buy <ShoppingCartIcon/></div>
               </div>
-              {/* <div className="category-button btn w-50 p-3 text-white h3" onClick={() => handleExplore(product.name)}>Explore <ShoppingCartIcon /></div> */}
             </div>
         </div>
       ))}

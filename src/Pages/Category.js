@@ -15,7 +15,7 @@ const Category = () => {
 
     return (
         <div class="backgound">
-            <Nav />
+            <Nav currentPage="Category"/>
             <div class="d-flex justify-content-between p-5">
                 <div class="category-heading p-5 rounded-3 w-75 shadow">
                     <div class="h6 text-center ">Here you can search what type of products we have!<br />Tap explore more to see specific items!</div>

@@ -8,6 +8,7 @@ import AdminCategory from './Pages/AdminCategory';
 import Category from './Pages/Category';
 import Product from './Pages/Product';
 import HelpCenter from './Pages/HelpCenter';
+import ComingSoon from './Pages/ComingSoon'
 
 import Auth from './utils/Auth';
 import AuthAdmin from './utils/AuthAdmin';
@@ -22,10 +23,10 @@ function App() {
           <Route path="/category" element={<Category />} />
           <Route path="/product" element={<Product />} />
           <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
         </Route>
         <Route element={<AuthAdmin />}>
-          <Route path="/admin" element={<WelcomeAdmin />} />
-          <Route path="/admin/category" element={<AdminCategory />} />
+          <Route path="/admin" element={<AdminCategory />} />
         </Route>
         <Route path="/" element={<Login />} />
         <Route path="*" element={<NotFound />} />
