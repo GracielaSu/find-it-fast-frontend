@@ -1,5 +1,9 @@
 import React from 'react';
-import CategoryCard from '../Components/CategoryCard';
+import Nav from '../Components/Nav'
+import CategoryCards from '../Components/CategoryCards';
+import NavigateButton from '../Components/NavigateButton';
+import SearchBox from '../Components/SearchBox';
+import InfoIcon from '@mui/icons-material/Info';
 
 const Category = () => {
     const productCategories = ['Laptops', 'Hats', 'Zentai'];
@@ -10,26 +14,18 @@ const Category = () => {
     ];
 
     return (
-        <div className="container">
-            {/* Header component */}
-            <div className="row my-4">
-                <div className="col-md-3">
-                    <h2>Categories</h2>
-                    <ul>
-                        {productCategories.map((category) => (
-                            <li key={category}>{category}</li>
-                        ))}
-                    </ul>
+        <div class="backgound">
+            <Nav />
+            <div class="d-flex justify-content-between p-5">
+                <div class="category-heading p-5 rounded-3 w-75 shadow">
+                    <div class="h6 text-center ">Here you can search what type of products we have!<br />Tap explore more to see specific items!</div>
                 </div>
-                <div className="col-md-9">
-                    <h2>Products</h2>
-                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {products.map((product) => (
-                            <CategoryCard key={product.name} {...product} />
-                        ))}
-                    </div>
+                <div class="category-func-box ps-5 text-center w-25 d-flex flex-column justify-content-evenly">
+                    <SearchBox />
+                    <NavigateButton text="Help Center" route="/coming-soon" custom_class="btn help-center-button h3 rounded text-white w-100 " logo={<InfoIcon />} />
                 </div>
             </div>
+            <CategoryCards />
         </div>
     );
 };

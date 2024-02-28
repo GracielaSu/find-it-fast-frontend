@@ -35,11 +35,7 @@ function Home() {
             </div>
           </div>
           <div class="col-md-6 d-flex justify-content-center align-items-center text-center">
-            {/* <div class="btn home-explore-button text-white h1" style={{ padding: "3rem", width: "30rem" }}>
-              Explore
-              <ShoppingCartIcon />
-            </div> */}
-            <NavigateButton text="Explore" route="/category" />
+            <NavigateButton text="Explore" route="/category" custom_class="btn home-explore-button p-5 mt-5 d-block h1 rounded text-white w-50" logo={<ShoppingCartIcon/>} />
           </div>
 
         </div>

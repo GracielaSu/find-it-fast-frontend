@@ -32,7 +32,7 @@ code {
     monospace;
 }
 
-.backgound{
+.backgound {
   background-color: #A88CC07d;
   min-height: 100vh;
 }
@@ -86,47 +86,117 @@ code {
   background-color: #d93f51d7;
   box-shadow: 0px 0px 50px black;
 }
-.custom-modal{
+
+.custom-modal {
   background-color: #5a3d7f92;
 }
+
 #nav-body {
   position: sticky;
   height: 12vh;
   background-color: #d83346b3;
+  box-shadow: 0px 0px 50px black;
+
 }
+
 #logo {
   margin-top: 1vh;
   height: 10vh;
 }
-.dropdown-toggle::after{
+
+.dropdown-toggle::after {
   display: none;
 }
-.dropdown-menu{
+
+.dropdown-menu {
   background-color: #5a3d7fd7;
 }
-.dropdown-item{
-  color:white;
+
+.dropdown-item {
+  color: white;
   text-align: center;
 }
-.home-leftbox{
+
+.home-leftbox {
   background-color: #d83346b3;
+
 }
-.home-playbtn{
+
+.home-playbtn {
   background-color: #5a3d7fd7;
 }
-.home-h5{
+
+.home-h5 {
   letter-spacing: .3rem;
 }
-.home-explore-button{
+
+.home-explore-button {
   background-color: #d83346b3;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.554);
+
 }
-.home-explore-button:hover{
+
+.home-explore-button:hover {
   background-color: rgba(69, 1, 9, 0.612);
+  color: cyan !important
 }
+
 .dropdown-menu {
   display: none;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+.category-heading {
+  background-color: #D9D9D9;
+  height: fit-content;
+}
+
+.search {
+  position: relative;
+  background-color: #5a3d7fd7;
+  color: white;
+}
+
+.search:hover {
+  background-color: #422765d7;
+}
+
+.search-text-box {
+  color: white;
+  background-color: #5a3d7f00;
+  outline: none;
+  border: none;
+}
+
+.search-text-box::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.774);
+  /* Replace with your desired color */
+}
+
+.help-center-button {
+  background-color: #5a3d7fd7;
+}
+
+.help-center-button:hover {
+  background-color: #422765d7;
+}
+
+.category-card {
+  background-color: #d83346b3;
+}
+
+.category-name {
+  background-color: #5a3d7fd7;
+}
+
+.category-button {
+  background-color: #5a3d7fd7;
+}
+
+.category-button:hover {
+  background-color: #422765d7;
+  color: cyan !important;
 }

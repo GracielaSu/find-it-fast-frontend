@@ -19,6 +19,7 @@ const Auth = () => {
         })
             .then(response => {
                 const role = response.data.role;
+                localStorage.setItem("username", response.data.name)
                 if (role === "admin" || role === "customer") {
                     setIsAuth(true);
                     console.log("Authenthicated")

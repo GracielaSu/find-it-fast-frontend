@@ -6,6 +6,7 @@ import WelcomeAdmin from './Pages/WelcomeAdmin';
 import NotFound from './Pages/NotFound';
 import AdminCategory from './Pages/AdminCategory';
 import Category from './Pages/Category';
+import Product from './Pages/Product';
 
 import Auth from './utils/Auth';
 import AuthAdmin from './utils/AuthAdmin';
@@ -18,6 +19,7 @@ function App() {
         <Route element={<Auth />}>
           <Route path="/home" element={<Home />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/product" element={<Product />} />
         </Route>
         <Route element={<AuthAdmin />}>
           <Route path="/admin" element={<WelcomeAdmin />} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const NavigateButton = ({ text, route }) => {
+const NavigateButton = ({ text, route, custom_class, logo }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -9,8 +9,9 @@ const NavigateButton = ({ text, route }) => {
   };
 
   return (
-    <button onClick={handleClick} className="btn login-btn p-3 mt-5 d-block h3 login-h3 rounded text-white w-75">
+    <button onClick={handleClick} className={custom_class}>
       {text}
+      {logo}
     </button>
   );
 };
