@@ -22,7 +22,7 @@ const Category = () => {
                 </div>
                 <div class="category-func-box ps-5 text-center w-25 d-flex flex-column justify-content-evenly">
                     <SearchBox />
-                    <NavigateButton text="Help Center" route="/coming-soon" custom_class="btn help-center-button h3 rounded text-white w-100 " logo={<InfoIcon />} />
+                    <NavigateButton text="Help Center" route="/help-center" custom_class="btn help-center-button h3 rounded text-white w-100 " logo={<InfoIcon />} />
                 </div>
             </div>
             <CategoryCards />

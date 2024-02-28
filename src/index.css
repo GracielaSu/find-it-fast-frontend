@@ -200,3 +200,9 @@ code {
   background-color: #422765d7;
   color: cyan !important;
 }
+.chat-bot{
+  display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 100vh; 
+}
